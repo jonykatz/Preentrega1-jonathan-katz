@@ -12,27 +12,44 @@ function addTicket (show){
     selectedTicket = show;
 
     switch (selectedTicket) {
-        case 'show1':
-            price = ticket * 3000;
-            var btn = document.querySelector("#checkoutBtn");
-                btn.textContent = 'COMPRAR: ' + ticket + ' Total a pagar $' + price;
-            break;
-
-        case 'show2':
-            price = ticket * 2000;
-            var btn = document.querySelector("#checkoutBtn");
-                btn.textContent = 'COMPRAR: ' + ticket + ' Total a pagar $' + price;
-            break;
-
-        case 'show3':
+        case 'Music Night':
             price = ticket * 2500;
-            var btn = document.querySelector("#checkoutBtn");
-                btn.textContent = 'COMPRAR: ' + ticket + ' Total a pagar $' + price;
+            let showTitle1 = document.querySelector("#showTitle");
+            let purchaseDetail1 = document.querySelector("#purchaseDetail");
+            let goodByeMsg1 = document.querySelector('#goodByeMsg')
+            purchaseDetail1.textContent = 'Total a Pagar: $' + price
+            showTitle1.textContent = selectedTicket
+            goodByeMsg1.textContent = 'Cantidad: ' + ticket + ' Tickets'
             break;
-        case 'show3':
-            price = ticket * 3500;
-            var btn = document.querySelector("#checkoutBtn");
-                btn.textContent = 'COMPRAR: ' + ticket + ' Total a pagar $' + price;
+
+        case 'House Music':
+            price = ticket * 2500;
+            let showTitle2 = document.querySelector("#showTitle");
+            let purchaseDetail2 = document.querySelector("#purchaseDetail");
+            let goodByeMsg2 = document.querySelector('#goodByeMsg')
+            purchaseDetail2.textContent = 'Total a Pagar: $' + price
+            showTitle2.textContent = selectedTicket
+            goodByeMsg2.textContent = 'Cantidad: ' + ticket + ' Tickets'
+            break;
+
+        case 'Music Fest':
+            price = ticket * 2500;
+            let showTitle3 = document.querySelector("#showTitle");
+            let purchaseDetail3 = document.querySelector("#purchaseDetail");
+            let goodByeMsg3 = document.querySelector('#goodByeMsg')
+            purchaseDetail3.textContent = 'Total a Pagar: $' + price
+            showTitle3.textContent = selectedTicket
+            goodByeMsg3.textContent = 'Cantidad: ' + ticket + ' Tickets'
+
+            break;
+        case 'The Best Music':
+            price = ticket * 2500;
+            let showTitle4 = document.querySelector("#showTitle");
+            let purchaseDetail4 = document.querySelector("#purchaseDetail");
+            let goodByeMsg4 = document.querySelector('#goodByeMsg')
+            purchaseDetail4.textContent = 'Total a Pagar: $' + price
+            showTitle4.textContent = selectedTicket
+            goodByeMsg4.textContent = 'Cantidad: ' + ticket + ' Tickets'
             break;
 
         default:
@@ -45,10 +62,36 @@ function addTicket (show){
 }
 
 function checkout(){
-    ticket = 0;
-    selectedTicket = '';
-    price = 0;
-    var btn = document.querySelector("#checkoutBtn");
-    btn.textContent = 'COMPRAR';
+    let email = prompt('Ingresa tu Email')
+    
+    
+    if(email){    
+        ticket = 0;
+        selectedTicket = '';
+        price = 0;
+
+        let btn = document.querySelector("#checkoutBtn");
+        let showTitle = document.querySelector("#showTitle");
+        let purchaseDetail = document.querySelector('#purchaseDetail')
+        let goodByeMsg = document.querySelector('#goodByeMsg') 
+
+        showTitle.textContent = 'Gracias por tu compra!'
+        purchaseDetail.textContent = '';
+        btn.textContent = '';
+        goodByeMsg.textContent = ''
+
+        function startAgain() {
+            showTitle.textContent = 'CARRITO VACIO'
+            purchaseDetail.textContent = '';
+            btn.textContent = 'PAGAR';
+            goodByeMsg.textContent = ''
+        }
+
+        setTimeout(startAgain, 1000);
+
+    }else{
+        alert('Porfavor, vuelve a tocar el boton PAGAR e Ingresa un Email')
+    }
 }
 
+//purchaseDetail
