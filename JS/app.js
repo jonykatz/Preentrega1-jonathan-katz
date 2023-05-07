@@ -44,3 +44,11 @@ function addTicket (show){
           
 }
 
+function checkout(){
+    ticket = 0;
+    selectedTicket = '';
+    price = 0;
+    var btn = document.querySelector("#checkoutBtn");
+    btn.textContent = 'COMPRAR';
+}
+
