@@ -5,6 +5,7 @@ let selectedTicket = '';
 let price = 0;
 
 function addTicket (show){
+    event.preventDefault();
     ticket ++    
 
     if (show === selectedTicket || selectedTicket === '' ) {
