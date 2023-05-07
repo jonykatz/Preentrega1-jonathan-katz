@@ -9,6 +9,7 @@
     <title>Ticket Master</title>
 </head>
 <body>
+  <!--NavBar-->
     <nav class="navbar bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">
@@ -17,6 +18,7 @@
           </a>
         </div>
     </nav>
+  <!--Photo Banner-->  
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -25,90 +27,63 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+      <div class="col-md-2 mt-5 mx-auto">
+        <div class="btn btn-info" onclick="checkout()" id="checkoutBtn"> COMPRAR</div>
       </div>
     </div>
+  <!--Shows Cards--> 
     <div class="row">
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="col-md-11 mt-5 mx-auto">
+        <div class="card border-primary mb-3" style="max-width: auto;">
+          <div class="card-header"><b> PROXIMOS EVENTOS</b></div>
+          <div class="card-body text-primary">
+            <div class="row">
+              <div class="col-3 g-md-5">
+                <div class="card" style="width: auto; height: auto;">
+                  <img src="https://res.cloudinary.com/drj3ogctf/image/upload/v1683484169/1682809676425-lg_pazidz.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Under Club | 11 de Mayo</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary" onclick="addTicket('show1')">Agregar Entrada</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 g-md-5">
+                <div class="card" style="width: auto; height: auto;">
+                  <img src="https://res.cloudinary.com/drj3ogctf/image/upload/v1683484169/1682809676425-lg_pazidz.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Under Club | 11 de Mayo</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary" onclick="addTicket('show2')">Agregar Entrada</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 g-md-5">
+                <div class="card" style="width: auto; height: auto;">
+                  <img src="https://res.cloudinary.com/drj3ogctf/image/upload/v1683484169/1682809676425-lg_pazidz.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Under Club | 11 de Mayo</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary" onclick="addTicket('show3')">Agregar Entrada</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 g-md-5">
+                <div class="card" style="width: auto; height: auto;">
+                  <img src="https://res.cloudinary.com/drj3ogctf/image/upload/v1683484169/1682809676425-lg_pazidz.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Under Club | 11 de Mayo</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary" onclick="addTicket('show4')">Agregar Entrada</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-3 g-md-5">
-        <div class="card" style="width: 18rem;">
-          <img src="https://res.cloudinary.com/drj3ogctf/image/upload/c_crop,h_1602,w_2000/v1683155520/banner_Background_ebyf37.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        </div> 
       </div>
     </div>
-    </div>
+      
     <script src="/JS/app.js"></script>
 </body>
 </html>
