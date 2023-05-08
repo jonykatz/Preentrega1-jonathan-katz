@@ -4,7 +4,6 @@ let ticket = 0;
 let selectedTicket = '';
 let price = 0;
 
-let btn = document.querySelector("#checkoutBtn");
 let showTitle = document.querySelector("#showTitle");
 let purchaseDetail = document.querySelector('#purchaseDetail')
 let goodByeMsg = document.querySelector('#goodByeMsg') 
@@ -33,7 +32,7 @@ function addTicket (show){
     switch (selectedTicket) {
         case 'Music Night':
             price = ticket * 2500;
-            purchaseDetail1textContent = 'Total a Pagar: $' + price
+            purchaseDetail.textContent = 'Total a Pagar: $' + price
             showTitle.textContent = selectedTicket
             goodByeMsg.textContent = 'Cantidad: ' + ticket + ' Tickets'
             break;
