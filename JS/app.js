@@ -94,10 +94,11 @@ function formControl(payload, modal) {
         alert('Selecciona algun evento')
     }
     
-  }
+}
 
-  // Wait for the DOM to be fully loaded
-  document.addEventListener('DOMContentLoaded', function() {
+// Wait for the DOM to be fully loaded
+// Checkout Function
+document.addEventListener('DOMContentLoaded', function() {
     let submitButton = document.getElementById('submitButton');
     submitButton.addEventListener('click', function(event) {
       event.preventDefault();
@@ -110,14 +111,30 @@ function formControl(payload, modal) {
       let customerLastName = document.getElementById('lastName').value;
       let customerEmail = document.getElementById('email').value;
       let customerCardNumber = document.getElementById('cardNumber').value;
+      
       //regular expression to validate mail formatting
       const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
       //Check if any of the fields are empty and if customerCardNumber has exactly 16 characters
       if (customerName && customerLastName && emailRegex.test(customerEmail) && customerCardNumber.length == 16) {
+        
         //If the other fields have values and customerCardNumber is 16 characters, the modal is hidden and the purchase completed modal opens.
         $('#checkoutForm').modal('hide');
         $('#successPurchase').modal('show');
+        
+        //save data in an object, convert to JSON and send data to local storage
+        let saleObject = {
+                            name:customerName,
+                            lastName: customerLastName,
+                            email: customerEmail,
+                            cardNumber:customerCardNumber           
+                          }
+
+        let json = JSON.stringify(saleObject)
+        localStorage.setItem("sale",json)                  
+        let getLs = localStorage.getItem('sale');
+        console.log(getLs)
+        
         goodByeMsg.textContent = `Gracias ${customerName} por comprar ${ticket} Tickets, por un valor de $ ${price}
         los datos de tu compra seran enviados a ${customerEmail}`
   
@@ -150,6 +167,6 @@ function formControl(payload, modal) {
         }
       }
     }
-  });
+});
   
 
