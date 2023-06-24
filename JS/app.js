@@ -1,42 +1,9 @@
 let ticket = 0;
 let selectedTicket = '';
+let selectedShowName = '';
 let price = 0;
 
-//Array of Shows
-let shows = [
-    {
-        id:'mn',
-        showName: 'Music Night',
-        price: '3000',
-        showDescription: '"Music Night" es un electrizante espectáculo de música DJ que enciende el escenario con ritmos vibrantes, mezclas electrizantes y un ambiente de fiesta inolvidable.',
-        showPhoto: 'https://res.cloudinary.com/drj3ogctf/image/upload/v1683497450/Coder/1257_yhv8ex.jpg',
-        showDate: '14 de Febrero',
-    },
-    {
-        id:'hm',
-        showName: 'House Music',
-        price: '2000',
-        showDescription: '"House Music": ¡Sumérgete en la magia de los ritmos envolventes y las mezclas cautivadoras en este apasionante evento de música DJ que te hará vibrar toda la noche!',
-        showPhoto: 'http://res.cloudinary.com/drj3ogctf/image/upload/v1683497699/Coder/4558935_nm4obt.jpg',
-        showDate: '05 de Junio',
-    },
-    {
-        id:'mf',
-        showName: 'Music Fest',
-        price: '2500',
-        showDescription: '"Music Fest" es un evento imperdible que te llevará a un mundo de melodías vibrantes, actuaciones electrizantes y una atmósfera festiva que te hará bailar sin parar.',
-        showPhoto: 'http://res.cloudinary.com/drj3ogctf/image/upload/c_scale,w_4000/v1683497787/Coder/4097578_qq14lg.jpg',
-        showDate: '17 de Junio',
-    },
-    {
-        id:'tbm',
-        showName: 'The Best Music',
-        price: '3500',
-        showDescription: '"The Best Music": Un evento único con los cantautores más destacados, donde la magia de las letras y las melodías te envolverá en una experiencia musical inolvidable.',
-        showPhoto: 'http://res.cloudinary.com/drj3ogctf/image/upload/v1683497547/Coder/6925880_j2dsmc.jpg',
-        showDate: '28 de Agosto',
-    },
-];
+
 
 //DOM interactions
 let showTitle = document.querySelector("#showTitle");
@@ -46,6 +13,66 @@ let cancelBtn = document.querySelector('#clearBtn')
 
 //form data
 let customerNameInput = document.querySelector('#nombre')
+
+//add shows
+function fetchAndInjectShows() {
+  fetch('showsDataBase.json')
+    .then(response => response.json())
+    .then(data => {
+      const showCardsContainer = document.getElementById('showCards');
+
+      data.forEach(show => {
+        const cardColumn = document.createElement('div');
+        cardColumn.className = 'col-sm-6 col-md-4 col-lg-3';
+
+        const card = document.createElement('div');
+        card.className = 'card mb-4';
+        card.style.width = 'auto';
+        card.style.height = 'auto';
+
+        const img = document.createElement('img');
+        img.src = show.showPhoto;
+        img.className = 'card-img-top';
+        img.alt = '...';
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+        const title = document.createElement('h5');
+        title.className = 'card-title';
+        title.textContent = `${show.showName} | ${show.showDate}`;
+
+        const description = document.createElement('p');
+        description.className = 'card-text';
+        description.textContent = show.showDescription;
+
+        const btn = document.createElement('a');
+        btn.href = '#';
+        btn.className = 'btn btn-primary';
+        btn.textContent = 'Agregar Entrada';
+        btn.setAttribute('onclick', `addTicket('${show.id}')`);
+
+        cardBody.appendChild(title);
+        cardBody.appendChild(description);
+        cardBody.appendChild(btn);
+
+        card.appendChild(img);
+        card.appendChild(cardBody);
+
+        cardColumn.appendChild(card);
+
+        showCardsContainer.appendChild(cardColumn);
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetchAndInjectShows();
+});
+
 
 
 // Clear Cart
@@ -68,16 +95,26 @@ function addTicket (showId){
         //slectedTicket is showId so you can add two different tickets in the same purchase
         selectedTicket = showId;
         //find the show by id
-        const findShow = shows.find((element) => element.id === showId );
-        // calculate the price
-        price = findShow.price * ticket;
-        //save the showName into the showTitle var 
-        showTitle.textContent  = findShow.showName
-        //sow the price into the purchaseDetail selector
-        purchaseDetail.textContent = `Estas Comprando ${ticket} Tickets, a un valor de $ ${price}`;
+        fetch('showsDataBase.json')
+          .then(response => response.json())
+          .then(data => {
+            const findShow = data.find((element) => element.id === showId );
+            selectedShowName = findShow.showName
+            // calculate the price
+            price = findShow.price * ticket;
+            //save the showName into the showTitle var 
+            showTitle.textContent  = findShow.showName
+            //sow the price into the purchaseDetail selector
+            purchaseDetail.textContent = `Estas Comprando ${ticket} Tickets, a un valor de $ ${price}`;
+          })
+        
 
    } else {
-    alert('Ya tenes seleccionado otro evento ' + selectedTicket)
+    Swal.fire({
+      title: `Ya tenes seleccionado otro evento ${selectedShowName}`,
+      icon: 'error',
+      confirmButtonText: 'cerrar'
+    })
    }
           
 }
@@ -120,7 +157,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         //If the other fields have values and customerCardNumber is 16 characters, the modal is hidden and the purchase completed modal opens.
         $('#checkoutForm').modal('hide');
-        $('#successPurchase').modal('show');
+        Swal.fire({
+          title: 'la compra se ha realizado con exito!',
+          text: 'gracias por comprar tu entrada, recibiras un mail con toda la informacion',
+          icon: 'success',
+          confirmButtonText: 'cerrar'
+        })
         
         //save data in an object, convert to JSON and send data to local storage
         let saleObject = {
