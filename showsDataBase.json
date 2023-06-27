@@ -2,7 +2,7 @@
     {
       "id": "mn",
       "showName": "Music Night",
-      "price": "3000",
+      "price": 3000,
       "showDescription": "\"Music Night\" es un electrizante espectáculo de música DJ que enciende el escenario con ritmos vibrantes, mezclas electrizantes y un ambiente de fiesta inolvidable.",
       "showPhoto": "https://res.cloudinary.com/drj3ogctf/image/upload/v1683497450/Coder/1257_yhv8ex.jpg",
       "showDate": "14 de Febrero"
@@ -10,7 +10,7 @@
     {
       "id": "hm",
       "showName": "House Music",
-      "price": "2000",
+      "price": 2000,
       "showDescription": "\"House Music\": ¡Sumérgete en la magia de los ritmos envolventes y las mezclas cautivadoras en este apasionante evento de música DJ que te hará vibrar toda la noche!",
       "showPhoto": "http://res.cloudinary.com/drj3ogctf/image/upload/v1683497699/Coder/4558935_nm4obt.jpg",
       "showDate": "05 de Junio"
@@ -18,7 +18,7 @@
     {
       "id": "mf",
       "showName": "Music Fest",
-      "price": "2500",
+      "price": 2500,
       "showDescription": "\"Music Fest\" es un evento imperdible que te llevará a un mundo de melodías vibrantes, actuaciones electrizantes y una atmósfera festiva que te hará bailar sin parar.",
       "showPhoto": "http://res.cloudinary.com/drj3ogctf/image/upload/c_scale,w_4000/v1683497787/Coder/4097578_qq14lg.jpg",
       "showDate": "17 de Junio"
@@ -26,7 +26,7 @@
     {
       "id": "tbm",
       "showName": "The Best Music",
-      "price": "3500",
+      "price": 3500,
       "showDescription": "\"The Best Music\": Un evento único con los cantautores más destacados, donde la magia de las letras y las melodías te envolverá en una experiencia musical inolvidable.",
       "showPhoto": "http://res.cloudinary.com/drj3ogctf/image/upload/v1683497547/Coder/6925880_j2dsmc.jpg",
       "showDate": "28 de Agosto"
